@@ -9,7 +9,6 @@ import com.xuecheng.content.mapper.CourseTeacherMapper;
 import com.xuecheng.content.model.dto.AddCourseTeacherDto;
 import com.xuecheng.content.model.dto.CourseTeacherInfoDto;
 import com.xuecheng.content.model.dto.EditCourseTeacherDto;
-import com.xuecheng.content.model.po.CourseBase;
 import com.xuecheng.content.model.po.CourseTeacher;
 import com.xuecheng.content.service.CourseTeacherService;
 import lombok.extern.slf4j.Slf4j;
@@ -67,6 +66,13 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
         return courseTeacherPageResult;
     }
 
+    /** 
+    * @Author: weichongzhan 
+    * @Date: 2024/12/16 15:10 
+    * @Description: 新增教师信息 
+    * @param addCourseTeacherDto 
+    * @return: com.xuecheng.content.model.dto.CourseTeacherInfoDto 
+    */
     @Transactional
     @Override
     public CourseTeacherInfoDto createCourseTeacher(AddCourseTeacherDto addCourseTeacherDto) {
@@ -87,6 +93,14 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
         return getCourseTeacherInfoDto(courseTeacherId);
     }
 
+    /** 
+    * @Author: weichongzhan 
+    * @Date: 2024/12/16 15:10 
+    * @Description: 修改教师信息
+    * @param editCourseTeacherDto 
+    * @return: com.xuecheng.content.model.dto.CourseTeacherInfoDto 
+    */
+    @Transactional
     @Override
     public CourseTeacherInfoDto updateCourseTeacher(EditCourseTeacherDto editCourseTeacherDto) {
 
@@ -112,6 +126,15 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
 
     }
 
+    /**
+    * @Author: weichongzhan
+    * @Date: 2024/12/16 15:10
+    * @Description:  删除教师信息
+    * @param courseId
+    * @param teacherId
+    * @return: void
+    */
+    @Transactional
     @Override
     public void deleteTeacher(Long courseId, Long teacherId) {
         //按条件查询教师信息
@@ -133,6 +156,7 @@ public class CourseTeacherServiceImpl implements CourseTeacherService {
 
     }
 
+    //返回教师信息Dto
     private CourseTeacherInfoDto getCourseTeacherInfoDto(Long courseTeacherId){
 
         CourseTeacherInfoDto courseTeacherInfoDto = new CourseTeacherInfoDto();

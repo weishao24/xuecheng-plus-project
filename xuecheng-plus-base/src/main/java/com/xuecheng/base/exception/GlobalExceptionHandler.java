@@ -22,7 +22,6 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-
     //处理XueChengPlusException自定义异常,此类异常是程序员主动提出的,可预知异常
     @ResponseBody
     @ExceptionHandler(XueChengPlusException.class)
